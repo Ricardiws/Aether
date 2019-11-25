@@ -62,7 +62,7 @@ public class Website {
 		for(int i=descriptionOpeningTagIndex; this.rawHtml.charAt(i) != ('"'); i++) {
 			descriptionClosingTagIndex = i;
 		}
-		this.metaDescription = rawHtml.substring(descriptionOpeningTagIndex, descriptionClosingTagIndex+1);
+		this.metaDescription = rawHtml.substring(descriptionOpeningTagIndex, descriptionClosingTagIndex-2);
 		
 		//Parsing keywords
 		int keywordsOpeningTagIndex = this.rawHtml.indexOf("<meta name=\"keywords\" content=\"")+31;
@@ -113,34 +113,34 @@ public class Website {
 	}
 	
 	public String toString() {
-		// String res = "- Website (Object) -\n";
+		 String res = "- Website (Object) -\n";
 		
-		// res += "publicUrl: "+this.publicUrl+"\n";
+		 res += "publicUrl: "+this.publicUrl+"\n";
 
-		// res += "privateUrl: "+this.privateUrl+"\n";
+		 res += "privateUrl: "+this.privateUrl+"\n";
 		
-		// res += "TITLE: "+this.title+"\n";
+		 res += "TITLE: "+this.title+"\n";
 		
-		// res += "DESCRIPTION: "+this.metaDescription+"\n";
+		 res += "DESCRIPTION: "+this.metaDescription+"\n";
 		
-		// res += "META TAGS: ";
-		// for(int i=0; i<this.keywords.length; i++) {
-		// 	res += keywords[i];
-		// 	if(i != this.keywords.length-1) res+= ", ";
-		// }
-		// res += "\n";
+		 res += "META TAGS: ";
+		 for(int i=0; i<this.keywords.length; i++) {
+		 	res += keywords[i];
+		 	if(i != this.keywords.length-1) res+= ", ";
+		 }
+		 res += "\n";
 		
-		// res += "VISITORS: "+this.visitors+"\n";
+		 res += "VISITORS: "+this.visitors+"\n";
 		
-		// res += "CREATED: "+this.created+"\n";
+		 res += "CREATED: "+this.created+"\n";
 		
-		// res += "THIS PAGE POINTS TO: ";
-		// for(String pageLinked : this.linksTo) {
-		// 	res += pageLinked;
-		// }
-		// res += "\n";
+		 res += "THIS PAGE POINTS TO: ";
+		 for(String pageLinked : this.linksTo) {
+		 	res += pageLinked;
+		 }
+		 res += "\n";
 		
-		return this.publicUrl;
+		return res;//this.publicUrl;
 	}
 	
 	public int getVisitors() {
