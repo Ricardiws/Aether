@@ -7,13 +7,14 @@ import java.util.HashSet;
 
 public class Website {
 	
-	private String url,
+	private String publicUrl,
+				   privateUrl,
 				   title,
 				   metaDescription;
 
 	private String[] keywords;
 	
-	private ArrayList<String> linksTo = new ArrayList<String>();
+	private HashSet<String> linksTo = new HashSet<String>();
 
 	private int visitors = 0;
 
@@ -152,8 +153,12 @@ public class Website {
 		this.visitors++;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getPublicUrl() {
+		return this.publicUrl;
+	}
+
+	public String getPrivateUrl() {
+		return this.privateUrl;
 	}
 
 	public String getTitle() {
@@ -176,14 +181,23 @@ public class Website {
 		return this.keywords;
 	}
 	
-	public ArrayList<String> getLinksTo() {
+	public HashSet<String> getLinksTo() {
 		return this.linksTo;
 	}
 
+	public String getMetaDescription() {
+		return this.metaDescription;
+	}
+
+	public void setMetaDescription(String metaDescription) {
+		this.metaDescription = metaDescription;
+	}
+
 	public static void main(String[] args) {
-		 Website p1 = new Website("https://blogdelperro.com", "<!DOCTYPE html>\n" + 
+		 Website p1 = new Website("https://blogdelperro.com", "hola.com", "<!DOCTYPE html>\n" + 
 		 		"<html lang=\"en\">\n" + 
-		 		"\n" + 
+				 "\n" +
+				"<title> Titulo de la pagina de perros </title>"+ 
 		 		"<head>\n" + 
 		 		"    <meta charset=\"UTF-8\" />\n" + 
 		 		"    <meta name=\"keywords\" content=\"Perros    ,    perros limpios, el blog del perro, el rincon del perro, perros flacos, perros occisos, perros muertos, noticias sobre perros, perros, perruno\" />\n" + 
